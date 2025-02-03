@@ -1,0 +1,19 @@
+services:
+    microsoft-edge:
+        container_name: msedge
+        image: ich777/microsoft-edge
+        restart: unless-stopped
+        ports:
+            - '3030:8080'
+        environment:
+            - EXTRA_PARAMETERS=
+            - CUSTOM_RES_W=1920
+            - CUSTOM_RES_H=1080
+            - UMASK=0000
+            - TZ=Australia/Perth
+            - NOVNC_RESIZE=remote
+        volumes:
+            - '/appdata/msedge/custom:/opt/custom:ro'
+            - '/appdata/msedge:/ms-edge'
+            - '/appdata/pihole.resolv.conf:/etc/resolv.conf:ro'
+            - '/etc/localtime:/etc/localtime:ro'
