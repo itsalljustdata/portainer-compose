@@ -3,6 +3,8 @@ services:
         container_name: msedge
         image: ich777/microsoft-edge
         restart: unless-stopped
+        env-file:
+          - stack.env
         ports:
             - '3030:8080'
         volumes:
